@@ -4,15 +4,19 @@
 LAYOUT_WITH_LEGEND()
 
 Person(ce, "Content editor")
-Person(user, "User", "A potential client who visits the website.")
-System(cms, "Content management", "Allows the user to add and edit forms and car model data.")
+Person_Ext(user, "User", "A potential client who visits the website.")
+System(cms, "CMS", "Allows the user to add and edit forms and related car model data.")
 System(app, "Web application", "Allows the forms to be shown on the web.")
-System_Ext(lms, "LMS Services", "Has data on ...")
-System_Ext(osb, "OSB", "Provides endpoints for ...")
+System_Ext(cmp, "Shared Components Library", "Contains the shared UI components.")
+System_Ext(lms, "LMS Services API", "Provides endpoints for submitting forms")
+System_Ext(osb, "OSB API", "Provides endpoints for submitting forms")
+System_Ext(occ, "Occasions API", "Provides occasions data")
 
 Rel(ce, cms, "Uses")
 Rel(user, app, "Uses")
 Rel(cms, app, "Sends form data", "JSON")
+Rel(app, cmp, "Uses")
 Rel(app, lms, "Uses")
 Rel(app, osb, "Uses")
+Rel(app, occ, "Uses")
 @enduml

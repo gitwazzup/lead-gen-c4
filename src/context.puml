@@ -1,22 +1,21 @@
 @startuml
 !include https://raw.githubusercontent.com/adrianvlupu/C4-PlantUML/latest/C4_Context.puml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
 
 LAYOUT_WITH_LEGEND()
 
-Person(ce, "Content editor")
-Person_Ext(user, "User", "A potential client who visits the website.")
-System(cms, "CMS", "Allows the user to add and edit forms and related car model data.")
-System(app, "Web application", "Allows the forms to be shown on the web.")
-System_Ext(cmp, "Shared Components Library", "Contains the shared UI components.")
-System_Ext(lms, "LMS Services API", "Provides endpoints for submitting forms")
-System_Ext(osb, "OSB API", "Provides endpoints for submitting forms")
-System_Ext(occ, "Occasions API", "Provides occasions data")
+Person(editor, "Content editor", "Marketeer or developer that edits/creates content data.")
+Person_Ext(visitor, "Visitor", "A website visitor who fills out a form.")
+Container(leadgen, "Lead-Gen Platform", "Contains form and car model data and allows it to generate forms.")
+System(cmp, "Shared Components Library", "Contains the shared UI components.")
+System(formhandler, "Formhandler API", "Provides endpoints for submitting forms")
+System(occ, "Occasions API", "Provides occasions data")
+System_Ext(img, "Image Database", "Contains official images of car models")
 
-Rel(ce, cms, "Uses")
-Rel(user, app, "Uses")
-Rel(cms, app, "Sends form data", "JSON")
-Rel(app, cmp, "Uses")
-Rel(app, lms, "Uses")
-Rel(app, osb, "Uses")
-Rel(app, occ, "Uses")
+Rel(editor, leadgen, "Using")
+Rel(visitor, leadgen, "Using")
+Rel(leadgen, cmp, "Using")
+Rel(leadgen, formhandler, "Submitting form data using")
+Rel(leadgen, occ, "Getting occasion data using")
+Rel(editor, img, "Getting images from")
 @enduml

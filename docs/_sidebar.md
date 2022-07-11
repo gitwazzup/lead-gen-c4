@@ -1,6 +1,6 @@
 * [Overview](HOME)
   * [1 Lead Gen Platform](1%20Lead%20Gen%20Platform/HOME)
-    * [API Application](1%20Lead%20Gen%20Platform/API%20Application/HOME)
+    * [FE Application](1%20Lead%20Gen%20Platform/FE%20Application/HOME)
     * [Single Page Application](1%20Lead%20Gen%20Platform/Single%20Page%20Application/HOME)
       * [Dynamic Diagram](1%20Lead%20Gen%20Platform/Single%20Page%20Application/Dynamic%20Diagram/HOME)
       * [Extended Docs](1%20Lead%20Gen%20Platform/Single%20Page%20Application/Extended%20Docs/HOME)

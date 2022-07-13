@@ -5,9 +5,9 @@ LAYOUT_WITH_LEGEND()
 
 Person(editor, "Content editor", "A marketeer or developer who edits or creates forms.")
 Person_Ext(visitor, "Visitor", "A (potential) customer who visits a form.")
-System(osb, "Online Service Bus API", "Provides endpoints for form handler, dealer service and finance service.")
-System(lms, "Lead Management Systeem API", "Provides form and taxation configurations.")
-System(occasions, "Occasions API", "Provides occasions data.")
+System(osb, "Online Service Bus API", "Endpoints for form handler, dealer service and finance service.")
+System(lms, "LMS Services API", "Form and taxation configurations.")
+System(occasions, "Occasions API", "Occasions data.")
 System_Boundary(lgp, "Lead Gen Platform") {
     Container(wa, "Web Application", "Node JS", "Provides endpoints for FE and generates static forms.")
     Container(spa, "Single Page Application", "React", "Shows a form to a customer via their web browser.")

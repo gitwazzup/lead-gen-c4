@@ -5,13 +5,14 @@ LAYOUT_WITH_LEGEND()
 
 Person(editor, "Content editor", "A marketeer or developer who edits or creates forms.")
 Person_Ext(visitor, "Visitor", "A (potential) customer who visits a form.")
-System_Ext(api, "API", "Provides endpoints (LMS / OBS / Occasions)")
-System_Ext(ext_data, "External Data", "Stores images and info on data tagging")
-System_Boundary(lgp, "Leadgen Platform") {
+System(osb, "Online Service Bus API", "Provides endpoints for form handler, dealer service and finance service.")
+System(lms, "Lead Management Systeem API", "Provides form and taxation configurations.")
+System(occasions, "Occasions API", "Provides occasions data.")
+System_Boundary(lgp, "Lead Gen Platform") {
     Container(wa, "Web Application", "Node JS", "Provides endpoints for FE and generates static forms.")
     Container(spa, "Single Page Application", "React", "Shows a form to a customer via their web browser.")
     Container(cms, "CMS UI", "React", "Provides a UI for the client to edit forms and related car model data.")
-    Container(db, "Database", "Relational Database Schema", "Stores forms and car model data")
+    ContainerDb(db, "Database", "Relational Database Schema", "Stores forms and car model data")
 
     Rel(spa, wa, "Uses endpoints", "JSON/HTTPS")
     Rel(wa, cms, "Uses form data", "JSON/HTTPS")
@@ -20,7 +21,8 @@ System_Boundary(lgp, "Leadgen Platform") {
 }
 
 Rel(editor, cms, "Uses")
-Rel(editor, ext_data, "Uses")
 Rel(visitor, spa, "Uses")
-Rel(spa, api, "Uses")
+Rel(spa, osb, "Uses")
+Rel(spa, lms, "Uses")
+Rel(spa, occasions, "Uses")
 @enduml
